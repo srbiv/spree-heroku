@@ -6,10 +6,10 @@ class Image < Asset
   :path => "assets/products/:id/:style/:basename.:extension",
   :storage => "s3",
   :s3_credentials => {
-  :access_key_id => ENV['S3_KEY']  || HEROKU_AWS_S3['access_key_id'],
-  :secret_access_key => ENV['S3_SECRET'] || HEROKU_AWS_S3['secret_access_key']
+  :access_key_id => ENV['S3_KEY'],
+  :secret_access_key => ENV['S3_SECRET']
   },
-  :bucket => ENV['S3_BUCKET'] || HEROKU_AWS_S3['bucket']
+  :bucket => ENV['S3_BUCKET']
 
   # save the w,h of the original image (from which others can be calculated)
   # we need to look at the write-queue for images which have not been saved yet
