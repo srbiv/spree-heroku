@@ -1,4 +1,3 @@
-# encoding: utf-8
 aws_s3_file = File.join(File.dirname(__FILE__), '..', 'aws_s3.yml')
 
 if File.exists?(aws_s3_file)

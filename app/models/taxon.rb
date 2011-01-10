@@ -6,7 +6,8 @@ class Taxon < ActiveRecord::Base
   before_create :set_permalink
   before_save :ensure_trailing_slash
 
-  validates_presence_of :name
+  validates :name, :presence => true
+
   has_attached_file :icon,
                 :styles => { :mini => '32x32>', :normal => '128x128>' },
                 :default_style => :mini,
@@ -22,13 +23,13 @@ class Taxon < ActiveRecord::Base
   # this method should be customized to your own site
   include ::ProductFilters  # for detailed defs of filters
   def applicable_filters
-    fs  = []
-    fs << ProductFilters.taxons_below(self)
+    fs = []
+    # fs << ProductFilters.taxons_below(self)
     ## unless it's a root taxon? left open for demo purposes
-    fs += [
-      ProductFilters.price_filter,
-      ProductFilters.brand_filter,
-      ProductFilters.selective_brand_filter(self) ]
+
+    fs << ProductFilters.price_filter if ProductFilters.respond_to?(:price_filter)
+    fs << ProductFilters.brand_filter if ProductFilters.respond_to?(:brand_filter)
+    fs
   end
 
   # Creates permalink based on .to_url method provided by stringx gem
