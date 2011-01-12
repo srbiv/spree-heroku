@@ -12,7 +12,7 @@ module SpreeHeroku
       end
       
       # Disable caching in the production environment
-      ActionController::Base.perform_caching = false if RAILS_ENV == 'production'
+      ActionController::Base.perform_caching = false if Rails.env == 'production'
       
       Spree::FileUtilz.class_eval do
         class << self
