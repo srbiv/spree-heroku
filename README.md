@@ -15,7 +15,7 @@ A Heroku account and an Amazon S3 account with a bucket.
 Add this to your project Gemfile:
 
 <pre>
-gem 'spree_heroku', '1.0.0', :git => 'git://github.com/amedse/spree-heroku.git'
+gem 'spree_heroku', '1.0.0', :git => 'git://github.com/paxer/spree-heroku.git'
 gem 'aws-s3'
 </pre>
 
