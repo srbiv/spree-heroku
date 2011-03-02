@@ -28,7 +28,7 @@ Specify the S3 credentials:
 
 <pre>
 
-Create under RAILS_ROOT/config/3.yaml
+Create under RAILS_ROOT/config/s3.yaml
 
 development:
   bucket: yourapp_dev
