@@ -13,11 +13,7 @@ class Taxon < ActiveRecord::Base
                 :default_style => :mini,
                 :path => "assets/taxons/:id/:style/:basename.:extension",
                 :storage => "s3",
-                :s3_credentials => {
-                  :access_key_id => ENV['S3_KEY'],
-                  :secret_access_key => ENV['S3_SECRET']
-                },
-                :bucket => ENV['S3_BUCKET']
+                :s3_credentials => "#{RAILS_ROOT}/config/s3.yml"
 
   # indicate which filters should be used for a taxon
   # this method should be customized to your own site
