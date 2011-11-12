@@ -13,7 +13,7 @@ class Taxon < ActiveRecord::Base
                 :default_style => :mini,
                 :path => "assets/taxons/:id/:style/:basename.:extension",
                 :storage => "s3",
-                :s3_credentials => "#{RAILS_ROOT}/config/s3.yml"
+                :s3_credentials => Rails.root.join('config', 's3.yml')
 
   # indicate which filters should be used for a taxon
   # this method should be customized to your own site
