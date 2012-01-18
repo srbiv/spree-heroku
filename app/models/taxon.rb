@@ -37,6 +37,12 @@ class Taxon < ActiveRecord::Base
     end
   end
 
+  def active_products
+    scope = self.products.active
+    scope = scope.on_hand unless Spree::Config[:show_zero_stock_products]
+    scope
+  end
+
   private
   # obsolete, kept for backwards compat
   def escape(str)
