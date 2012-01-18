@@ -10,10 +10,10 @@ module SpreeHeroku
       Dir.glob(File.join(File.dirname(__FILE__), "../app/**/*_decorator*.rb")) do |c|
         Rails.env.production? ? require(c) : load(c)
       end
-      
+
       # Disable caching in the production environment
       ActionController::Base.perform_caching = false if Rails.env == 'production'
-      
+
       Spree::FileUtilz.class_eval do
         class << self
           # Patch mirror_files method to be silent when using r/o Heroku FS
