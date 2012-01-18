@@ -8,11 +8,11 @@ class Taxon < ActiveRecord::Base
   validates :name, :presence => true
 
   has_attached_file :icon,
-                :styles => { :mini => '32x32>', :normal => '128x128>' },
-                :default_style => :mini,
-                :path => "assets/taxons/:id/:style/:basename.:extension",
-                :storage => "s3",
-                :s3_credentials => Rails.root.join('config', 's3.yml')
+                    :styles => { :mini => '32x32>', :normal => '128x128>' },
+                    :default_style => :mini,
+                    :path => "assets/taxons/:id/:style/:basename.:extension",
+                    :storage => "s3",
+                    :s3_credentials => Rails.root.join('config', 's3.yml')
 
   # indicate which filters should be used for a taxon
   # this method should be customized to your own site
