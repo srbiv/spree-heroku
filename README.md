@@ -4,7 +4,7 @@ This is an extension for Spree, allowing the e-commerce system to run on Heroku 
 
 The major constraint on Heroku is that we can't write files to disk, so this extension disables all disk caching, fixes a few issues and changes Spree to store on Amazon S3.
 
-This is an update of http://github.com/RSpace/spree-heroku that works with Rails >= 3.0.x and Spree >= 0.40.0 - 0.70.x
+This is an update of http://github.com/RSpace/spree-heroku that works with Rails >= 3.1.x and Spree >= 1.0.0
 
 # Requirements 
 
@@ -12,11 +12,15 @@ A Heroku account and an Amazon S3 account with a bucket.
 
 # Installation and configuration
 
-Add this to your project Gemfile:
+Add this to your project Gemfile (before spree gem):
 
 <pre>
-gem 'spree_heroku', '1.0.0', :git => 'git://github.com/paxer/spree-heroku.git'
 gem 'aws-s3'
+</pre>
+
+And this, somewhere after spree gem
+<pre>
+gem 'spree_heroku', '1.0.0', :git => 'git://github.com/biow0lf/spree-heroku.git'
 </pre>
 
 Install the new gems with bundler:
@@ -76,7 +80,7 @@ That's it - you're done! :)
 
 # Troubleshooting
 
-This extension has been tested with Spree 0.40.0 and Rails 3.0.3. If you have problems using the extension with a newer version of Spree, it could be due to Spree's gem dependencies having changed.
+This extension has been tested with Spree 1.0.0 and Rails 3.1.3. If you have problems using the extension with a newer version of Spree, it could be due to Spree's gem dependencies having changed.
 
 # Copyright and license
 
